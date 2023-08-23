@@ -2,11 +2,14 @@ package pt.isec.pa.tinypack.model.fsm.states;
 
 import javafx.scene.input.KeyCode;
 import pt.isec.pa.tinypack.model.data.IMazeElement;
+import pt.isec.pa.tinypack.model.data.PacManDirections;
 import pt.isec.pa.tinypack.model.data.mazeElements.VoidSpace;
 import pt.isec.pa.tinypack.model.fsm.*;
 import pt.isec.pa.tinypack.model.help_functions.HelpFunctions;
 
 import java.time.Instant;
+
+import static pt.isec.pa.tinypack.model.data.PacManDirections.*;
 
 public class FantomsDontMoveState extends GameStateAdapter {
 
@@ -38,7 +41,7 @@ public class FantomsDontMoveState extends GameStateAdapter {
 
 
     @Override
-    public boolean getInput(KeyCode input){
+    public boolean getInput(PacManDirections input){
         /*if(input != KeyCode.LEFT && input != KeyCode.RIGHT &&
                 input != KeyCode.UP && input != KeyCode.DOWN)
         {
@@ -46,8 +49,8 @@ public class FantomsDontMoveState extends GameStateAdapter {
         }
 
          */
-        if(input == KeyCode.RIGHT || input == KeyCode.LEFT
-        ||input == KeyCode.UP || input == KeyCode.DOWN) {
+        if(input == RIGHT || input == LEFT
+        ||input == UP || input == DOWN) {
 
             GameEntities.getPacMan().setNext_direction(input);
            // super.GameEntities.getPacMan().setDirection(input);
@@ -84,7 +87,7 @@ public class FantomsDontMoveState extends GameStateAdapter {
     @Override
     public void processTick(){
         char[][] board = GameEntities.getBoard();
-        KeyCode direcao = GameEntities.getPacMan().getDirection();
+        PacManDirections direcao = GameEntities.getPacMan().getDirection();
         int CordPacY = GameEntities.getPacMan().getY_x()[0];
         int CordPacx = GameEntities.getPacMan().getY_x()[1];
 

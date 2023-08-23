@@ -450,7 +450,7 @@ public class GameData {
 
 
 
-    public KeyCode getPacDir(){
+    public PacManDirections getPacDir(){
         return PacMan.getDirection();
     }
 

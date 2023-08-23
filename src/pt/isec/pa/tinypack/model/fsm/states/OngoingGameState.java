@@ -5,6 +5,8 @@ import pt.isec.pa.tinypack.model.data.mazeElements.VoidSpace;
 import pt.isec.pa.tinypack.model.fsm.*;
 import pt.isec.pa.tinypack.model.help_functions.HelpFunctions;
 
+import static pt.isec.pa.tinypack.model.data.PacManDirections.*;
+
 
 public class OngoingGameState extends GameStateAdapter {
 
@@ -23,13 +25,14 @@ public class OngoingGameState extends GameStateAdapter {
 
 
     @Override
-    public boolean getInput(KeyCode input) {
+    public boolean getInput(PacManDirections input) {
 
 
-        if(input == KeyCode.RIGHT || input == KeyCode.LEFT
-                ||input == KeyCode.UP || input == KeyCode.DOWN) {
+        if(input == RIGHT || input == LEFT
+                ||input == UP || input == DOWN) {
 
             GameEntities.getPacMan().setNext_direction(input);
+
             // super.GameEntities.getPacMan().setDirection(input);
 
             System.out.println("Diração do pacman: " +GameEntities.getPacMan().getDirection().toString() );
@@ -59,7 +62,7 @@ public class OngoingGameState extends GameStateAdapter {
     @Override
     public void processTick() {
         char[][] board = GameEntities.getBoard();
-        KeyCode direcao = GameEntities.getPacMan().getDirection();
+        PacManDirections direcao = GameEntities.getPacMan().getDirection();
         int CordPacY = GameEntities.getPacMan().getY_x()[0];
         int CordPacx = GameEntities.getPacMan().getY_x()[1];
 
@@ -363,7 +366,7 @@ public class OngoingGameState extends GameStateAdapter {
     public char[][] getOutput() {
 
         char[][] board = GameEntities.getBoard();
-        KeyCode direcao = GameEntities.getPacMan().getDirection();
+        PacManDirections direcao = GameEntities.getPacMan().getDirection();
         int CordPacY = GameEntities.getPacMan().getY_x()[0];
         int CordPacx = GameEntities.getPacMan().getY_x()[1];
 
@@ -536,7 +539,7 @@ public class OngoingGameState extends GameStateAdapter {
 
     private char[][] detectWarp(){
         char[][] board = GameEntities.getBoard();
-        KeyCode direcao = GameEntities.getPacMan().getDirection();
+        PacManDirections direcao = GameEntities.getPacMan().getDirection();
         int CordPacY = GameEntities.getPacMan().getY_x()[0];
         int CordPacx = GameEntities.getPacMan().getY_x()[1];
         System.out.println("Warp detected at "+ (CordPacY  -1)  + CordPacx);
@@ -567,7 +570,7 @@ public class OngoingGameState extends GameStateAdapter {
                         GameEntities.getMaze().set(CordPacY,CordPacx, new VoidSpace());
                         //GameEntities.getMaze().set(y,x, new Warp());
                         GameEntities.getPacMan().setY_x(y - 1, x);
-                        GameEntities.getPacMan().setDirection(KeyCode.UP);
+                        GameEntities.getPacMan().setDirection(PacManDirections.UP);
                         return GameEntities.getBoard();
 
 
@@ -589,7 +592,7 @@ public class OngoingGameState extends GameStateAdapter {
                         GameEntities.getMaze().set(CordPacY,CordPacx,new VoidSpace());
                         GameEntities.getPacMan().setY_x(y + 1, x);
                         //System.out
-                        GameEntities.getPacMan().setDirection(KeyCode.DOWN);
+                        GameEntities.getPacMan().setDirection(PacManDirections.DOWN);
                         return GameEntities.getBoard();
 
                     }
@@ -606,7 +609,7 @@ public class OngoingGameState extends GameStateAdapter {
                         //GameEntities.getMaze().set(y,x, new Warp());
                         GameEntities.getMaze().set(CordPacY,CordPacx,new VoidSpace());
                         GameEntities.getPacMan().setY_x(y, x + 1);
-                        GameEntities.getPacMan().setDirection(KeyCode.RIGHT);
+                        GameEntities.getPacMan().setDirection(RIGHT);
                         return GameEntities.getBoard();
                     }
 
@@ -621,7 +624,7 @@ public class OngoingGameState extends GameStateAdapter {
                         //GameEntities.getMaze().set(y,x, new Warp());
                         GameEntities.getMaze().set(CordPacY,CordPacx,new VoidSpace());
                         GameEntities.getPacMan().setY_x(y, x - 1);
-                        GameEntities.getPacMan().setDirection(KeyCode.RIGHT);
+                        GameEntities.getPacMan().setDirection(RIGHT);
                         return GameEntities.getBoard();
                     }
 
@@ -634,7 +637,7 @@ public class OngoingGameState extends GameStateAdapter {
     }
 
 
-    private void eatPowerBall(int CordPacY,int CordPacx,KeyCode type){//os argumentos sao as psicoes para quis o pacman deve ir
+    private void eatPowerBall(int CordPacY,int CordPacx,PacManDirections type){//os argumentos sao as psicoes para quis o pacman deve ir
         GameEntities.getMaze().set(CordPacY , CordPacx, GameEntities.getPacMan()); //Pacman avanca uma casa
 
         switch (type)
@@ -670,7 +673,7 @@ public class OngoingGameState extends GameStateAdapter {
         }
     }
 
-    private void eatBall(int CordPacY,int CordPacx,KeyCode type){
+    private void eatBall(int CordPacY,int CordPacx,PacManDirections type){
         GameEntities.getMaze().set(CordPacY , CordPacx, GameEntities.getPacMan()); //Pacman avanca uma casa
         switch (type)
         {

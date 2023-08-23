@@ -1,6 +1,7 @@
 package pt.isec.pa.tinypack.model.help_functions;
 
 import javafx.scene.input.KeyCode;
+import pt.isec.pa.tinypack.model.data.PacManDirections;
 import pt.isec.pa.tinypack.model.data.mazeElements.PacMan;
 import pt.isec.pa.tinypack.model.data.mazeElements.VoidSpace;
 import pt.isec.pa.tinypack.model.fsm.*;
@@ -71,7 +72,7 @@ public abstract class HelpFunctions {
     }
 
 
-    public static void eatBall(KeyCode type,GameData GameEntities){
+    public static void eatBall(PacManDirections type, GameData GameEntities){
 
         GameEntities.setNumberBalls(GameEntities.getNumberBalls() - 1 );
         GameEntities.setPontos(GameEntities.getPontos() + 1);
@@ -96,7 +97,7 @@ public abstract class HelpFunctions {
     public  static void processWarp(GameData GameEntities){
         //Nao confundir com detectWarp, esta funcao é unicamente responsavel pela logica de entrar no warp
         char[][] board = GameEntities.getBoard();
-        KeyCode direcao = GameEntities.getPacMan().getDirection();
+        PacManDirections direcao = GameEntities.getPacMan().getDirection();
         int CordPacY = GameEntities.getPacMan().getY_x()[0];
         int CordPacx = GameEntities.getPacMan().getY_x()[1];
         System.out.println("Warp detected at "+ (CordPacY  -1)  + CordPacx);
@@ -127,7 +128,7 @@ public abstract class HelpFunctions {
                         GameEntities.getMaze().set(CordPacY,CordPacx, new VoidSpace());
                         //GameEntities.getMaze().set(y,x, new Warp());
                         GameEntities.getPacMan().setY_x(y - 1, x);
-                        GameEntities.getPacMan().setDirection(KeyCode.UP);
+                        GameEntities.getPacMan().setDirection(PacManDirections.UP);
                         //return GameEntities.getBoard();
 
 
@@ -149,7 +150,7 @@ public abstract class HelpFunctions {
                         GameEntities.getMaze().set(CordPacY,CordPacx,new VoidSpace());
                         GameEntities.getPacMan().setY_x(y + 1, x);
                         //System.out
-                        GameEntities.getPacMan().setDirection(KeyCode.DOWN);
+                        GameEntities.getPacMan().setDirection(PacManDirections.DOWN);
                         //return GameEntities.getBoard();
 
                     }
@@ -168,7 +169,7 @@ public abstract class HelpFunctions {
                         //GameEntities.getMaze().set(y,x, new Warp());
                         GameEntities.getMaze().set(CordPacY,CordPacx,new VoidSpace());
                         GameEntities.getPacMan().setY_x(y, x + 1);
-                        GameEntities.getPacMan().setDirection(KeyCode.RIGHT);
+                        GameEntities.getPacMan().setDirection(PacManDirections.RIGHT);
                         //return GameEntities.getBoard();
                     }
 
@@ -184,7 +185,7 @@ public abstract class HelpFunctions {
                         //GameEntities.getMaze().set(y,x, new Warp());
                         GameEntities.getMaze().set(CordPacY,CordPacx,new VoidSpace());
                         GameEntities.getPacMan().setY_x(y, x - 1);
-                        GameEntities.getPacMan().setDirection(KeyCode.LEFT);
+                        GameEntities.getPacMan().setDirection(PacManDirections.LEFT);
                         //return GameEntities.getBoard();
                     }
 
@@ -202,7 +203,7 @@ public abstract class HelpFunctions {
          * seguida ou não.
          */
 
-        KeyCode nextDir = GameEntities.getPacMan().getNext_direction();
+        PacManDirections nextDir = GameEntities.getPacMan().getNext_direction();
         PacMan pacMan = GameEntities.getPacMan();
         int CordPacY = GameEntities.getPacMan().getY_x()[0];
         int CordPacX = GameEntities.getPacMan().getY_x()[1];

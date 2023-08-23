@@ -3,6 +3,7 @@ package pt.isec.pa.tinypack.model.data.mazeElements;
 //import com.googlecode.lanterna.input.KeyType;
 import javafx.scene.input.KeyCode;
 import pt.isec.pa.tinypack.model.data.IMazeElement;
+import pt.isec.pa.tinypack.model.data.PacManDirections;
 
 import javax.swing.text.html.ImageView;
 import java.awt.*;
@@ -20,12 +21,12 @@ public class PacMan implements IMazeElement {
    int x1,x2;
     int y1, y2;
 
-    private KeyCode direction = null;
+    //private KeyCode direction = null;
+    private PacManDirections direction = null;
 
 
-
-    private KeyCode next_direction = null;
-
+    //private KeyCode next_direction = null;
+    private PacManDirections next_direction = null;
 
 
    /* private directions direction2;
@@ -58,20 +59,20 @@ public class PacMan implements IMazeElement {
     }
 
 
-    public KeyCode getDirection() {
+    public PacManDirections getDirection() {
         return direction;
     }
 
-    public void setDirection(KeyCode direction) {
+    public void setDirection(PacManDirections direction) {
         this.direction = direction;
     }
 
 
-    public KeyCode getNext_direction() {
+    public PacManDirections getNext_direction() {
         return next_direction;
     }
 
-    public void setNext_direction(KeyCode next_direction) {
+    public void setNext_direction(PacManDirections next_direction) {
         this.next_direction = next_direction;
     }
 

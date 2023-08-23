@@ -5,7 +5,6 @@ import javafx.geometry.HPos;
 import javafx.geometry.Pos;
 import javafx.geometry.VPos;
 import javafx.scene.Node;
-import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Background;
@@ -14,12 +13,12 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
+import pt.isec.pa.tinypack.model.data.PacManDirections;
 import pt.isec.pa.tinypack.model.fsm.GameManager;
 import pt.isec.pa.tinypack.model.fsm.GameState;
 import pt.isec.pa.tinypack.model.fsm.PropertyChangeNames;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class GameBoardUI extends GridPane {
@@ -38,7 +37,11 @@ public class GameBoardUI extends GridPane {
 
     private double big_circle_radius;
 
+    private PacManDirections pacManDirections;
+
     Image PacImage = null;
+
+
    // private final String FIRE_EVOLVE = "Fire evolve";
 
 
@@ -100,7 +103,14 @@ public class GameBoardUI extends GridPane {
         this.setOnKeyPressed(e->{
             //if(e.getCode() == KeyCode.UP)
               //  System.out.println("ola");
-            model.setInput(e.getCode());
+            switch (e.getCode()){
+                case UP -> pacManDirections =  PacManDirections.UP;
+                case DOWN -> pacManDirections = PacManDirections.DOWN;
+                case LEFT -> pacManDirections = PacManDirections.LEFT;
+                case RIGHT -> pacManDirections = PacManDirections.RIGHT;
+            }
+            model.setInput(pacManDirections);
+            //model.setInput(e.getCode());
         });
 
 

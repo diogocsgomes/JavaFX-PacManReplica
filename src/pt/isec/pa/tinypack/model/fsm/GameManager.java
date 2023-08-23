@@ -17,6 +17,7 @@ import pt.isec.pa.tinypack.gameengine.IGameEngine;
 import pt.isec.pa.tinypack.gameengine.IGameEngineEvolve;
 import pt.isec.pa.tinypack.model.data.HighScores;
 import pt.isec.pa.tinypack.model.data.IMazeElement;
+import pt.isec.pa.tinypack.model.data.PacManDirections;
 import pt.isec.pa.tinypack.model.data.Score;
 import pt.isec.pa.tinypack.model.help_functions.HelpFunctions;
 
@@ -24,6 +25,8 @@ import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.util.List;
 import java.util.Map;
+
+import static pt.isec.pa.tinypack.model.data.PacManDirections.*;
 
 public class GameManager implements IGameEngineEvolve {
 
@@ -97,13 +100,13 @@ public class GameManager implements IGameEngineEvolve {
             return null;
         }
 
-        if(fsm.getPacDir() == KeyCode.UP)
+        if(fsm.getPacDir() == UP)
             return PacUp;
-        if (fsm.getPacDir() == KeyCode.DOWN)
+        if (fsm.getPacDir() == DOWN)
             return PacDown;
-        if(fsm.getPacDir() == KeyCode.LEFT)
+        if(fsm.getPacDir() == LEFT)
             return PacLeft;
-        if (fsm.getPacDir() == KeyCode.RIGHT)
+        if (fsm.getPacDir() == RIGHT)
             return PacRight;
 
         return null;
@@ -118,7 +121,7 @@ public class GameManager implements IGameEngineEvolve {
 
 
 
-    public void setInput(KeyCode input)
+    public void setInput(PacManDirections input)
     {
 
          fsm.setInput(input);

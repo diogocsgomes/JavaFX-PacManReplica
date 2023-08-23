@@ -2,6 +2,7 @@ package pt.isec.pa.tinypack.model.fsm;
 import javafx.scene.input.KeyCode;
 import pt.isec.pa.tinypack.model.data.GhostState;
 import pt.isec.pa.tinypack.model.data.IMazeElement;
+import pt.isec.pa.tinypack.model.data.PacManDirections;
 import pt.isec.pa.tinypack.model.fsm.states.OngoingGameState_PowerState;
 
 
@@ -55,7 +56,7 @@ public class Context {
     }
 
 
-    public void setInput(KeyCode input)
+    public void setInput(PacManDirections input)
     {
         state.getInput(input);
     }
@@ -200,7 +201,7 @@ public class Context {
     }
 
 
-    public KeyCode getPacDir(){
+    public PacManDirections getPacDir(){
         return gameData.getPacDir();
     }
 

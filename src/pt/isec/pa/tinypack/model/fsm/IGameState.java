@@ -2,11 +2,12 @@ package pt.isec.pa.tinypack.model.fsm;
 
 //import com.googlecode.lanterna.input.KeyType;
 import javafx.scene.input.KeyCode;
+import pt.isec.pa.tinypack.model.data.PacManDirections;
 import pt.isec.pa.tinypack.model.data.mazeElements.PacMan;
 
 public interface IGameState {
 
-    boolean getInput(KeyCode input);
+    boolean getInput(PacManDirections input);
     GameState getState();
 
      PacMan getPacMan();

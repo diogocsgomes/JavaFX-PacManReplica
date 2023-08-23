@@ -5,6 +5,8 @@ import javafx.scene.input.KeyCode;
 import pt.isec.pa.tinypack.model.data.*;
 import pt.isec.pa.tinypack.model.fsm.*;
 
+import static pt.isec.pa.tinypack.model.data.PacManDirections.*;
+
 public class PreGameState extends GameStateAdapter {
 
 
@@ -26,7 +28,7 @@ public class PreGameState extends GameStateAdapter {
 
 
     @Override
-    public boolean getInput(KeyCode input) {
+    public boolean getInput(PacManDirections input) {
 
        /* if(input == KeyType.F1)
         {
@@ -41,8 +43,8 @@ public class PreGameState extends GameStateAdapter {
 
         */
 
-        if(input != KeyCode.LEFT && input != KeyCode.RIGHT &&
-                input != KeyCode.UP && input != KeyCode.DOWN)
+        if(input != LEFT && input != RIGHT &&
+                input != UP && input != DOWN)
         {
             return false;
         }

@@ -2,6 +2,7 @@ package pt.isec.pa.tinypack.model.fsm;
 
 //import com.googlecode.lanterna.input.KeyType;
 import javafx.scene.input.KeyCode;
+import pt.isec.pa.tinypack.model.data.PacManDirections;
 import pt.isec.pa.tinypack.model.data.mazeElements.PacMan;
 //import com.googlecode.lanterna.input;
 
@@ -32,7 +33,7 @@ public abstract class GameStateAdapter implements  IGameState{
 
 
     @Override
-    public boolean getInput(KeyCode input) {
+    public boolean getInput(PacManDirections input) {
         return false;
     }
 
