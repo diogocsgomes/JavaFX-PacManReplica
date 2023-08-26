@@ -47,7 +47,8 @@ public class GhostMovement implements IGameEngineEvolve {
 
 
     public void start(){
-        movingGhosts.start(500);
+        movingGhosts.start(250);
+        //movingGhosts.start(500);
     }
 
     public void stop(){

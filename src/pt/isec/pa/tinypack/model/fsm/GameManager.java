@@ -235,6 +235,7 @@ public class GameManager implements IGameEngineEvolve {
 
 
         movePacMan.start(250);
+        //movePacMan.start(250);
         pcs.firePropertyChange(PropertyChangeNames.FIRE_INICIAR_JOGO,null,null);
     }
 
