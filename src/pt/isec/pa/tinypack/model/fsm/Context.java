@@ -168,7 +168,7 @@ public class Context {
 
 
         }*/
-        if(gameData.getNumberBalls() == 0 && gameData.getNumberPowerBalls() == 0)
+        if(gameData.getNumberBalls() <= 0 && gameData.getNumberPowerBalls() <= 0)
         {
             /*if(ghostMovement.getInterval() > 200)
             {
@@ -176,6 +176,7 @@ public class Context {
             }
 
              */
+            System.out.println("Nivel acabou");
             leave_game = true;
         }
 

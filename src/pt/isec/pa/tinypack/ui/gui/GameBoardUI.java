@@ -188,7 +188,8 @@ public class GameBoardUI extends GridPane {
                     }
                     case 'F' ->{
 
-                        Image image = new Image("\\pt\\isec\\pa\\tinypack\\ui\\gui\\resources\\images\\laranja.png");
+                        Image image = new Image("\\\\pt\\\\isec\\\\pa\\\\tinypack\\\\ui\\\\gui\\\\resources\\\\images\\\\melancia.png");
+                        //Image image = new Image("\\pt\\isec\\pa\\tinypack\\ui\\gui\\resources\\images\\laranja.png");
                         //Image image = new Image("\\pt\\isec\\pa\\tinypack\\ui\\gui\\resources\\images\\cereja.jfif");
 
                         ImageView fruta = new ImageView(image);

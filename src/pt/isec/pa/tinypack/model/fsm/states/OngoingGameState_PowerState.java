@@ -231,37 +231,10 @@ public class OngoingGameState_PowerState extends GameStateAdapter {
 
                 }
 
-                /*if (HelpFunctions.detectGhost(CordPacY - 1, CordPacx, board))
-                {
-                    GameEntities.getMaze().set(CordPacY - 1, CordPacx, new VoidSpace());
-                    ghostsEaten++;
-                    HelpFunctions.eatGhost(ghostsEaten,GameEntities);
-                    //super.context.changeState(GameState.PAC_MAN_DEAD);
-
-
-                }
-
-                 */
-
                 if(HelpFunctions.detectPowerBall(CordPacY - 1,CordPacx,board))
                 {
-
                     HelpFunctions.eatPowerBall(GameEntities);
-
-                    this.context.getGameData().setNumberPowerBalls(this.context.getGameData().getNumberPowerBalls() - 1 );
-
-                    if(this.context.getGameData().getNumberBalls() == 0 && this.context.getGameData().getNumberPowerBalls() == 0) {
-                        //this.context.changeState(GameState.LEVEL_TRANSITION);
-                    }
-
-
-                    else {
-                        // System.out.println("Fiz isto");
-                        //this.context.changeState(GameState.ONGOING_GAME_POWER);
-                        timeout += timer;
-                    }
-                    //this.eatPowerBall(CordPacY - 1,CordPacx,direcao);
-
+                    timeout += timer;
                 }
 
 
@@ -309,34 +282,10 @@ public class OngoingGameState_PowerState extends GameStateAdapter {
 
                 }
 
-               /* if (HelpFunctions.detectGhost(CordPacY + 1, CordPacx, board)) {
-                    GameEntities.getMaze().set(CordPacY + 1, CordPacx, new VoidSpace());
-                    ghostsEaten++;
-                    HelpFunctions.eatGhost(ghostsEaten,GameEntities);
-                    //super.context.changeState(GameState.PAC_MAN_DEAD);
-
-                }
-
-                */
                 if(HelpFunctions.detectPowerBall(CordPacY + 1,CordPacx,board))
                 {
-
                     HelpFunctions.eatPowerBall(GameEntities);
-
-                    this.context.getGameData().setNumberPowerBalls(this.context.getGameData().getNumberPowerBalls() - 1 );
-
-                    if(this.context.getGameData().getNumberBalls() == 0 && this.context.getGameData().getNumberPowerBalls() == 0) {
-                        //this.context.changeState(GameState.LEVEL_TRANSITION);
-                    }
-
-
-                    else {
-                        // System.out.println("Fiz isto");
-                        //this.context.changeState(GameState.ONGOING_GAME_POWER);
-                        timeout += timer;
-                    }
-                    //this.eatPowerBall(CordPacY - 1,CordPacx,direcao);
-
+                    timeout += timer;
                 }
                 if(HelpFunctions.detectBall(CordPacY + 1,CordPacx,board)){
                     HelpFunctions.eatBall(direcao,GameEntities);
@@ -374,34 +323,10 @@ public class OngoingGameState_PowerState extends GameStateAdapter {
 
                 }
 
-               /* if (HelpFunctions.detectGhost(CordPacY, CordPacx - 1, board)) {
-                    GameEntities.getMaze().set(CordPacY, CordPacx , new VoidSpace());
-                    ghostsEaten++;
-                    HelpFunctions.eatGhost(ghostsEaten,GameEntities);
-                    //super.context.changeState(GameState.PAC_MAN_DEAD);
-
-                }
-
-                */
                 if(HelpFunctions.detectPowerBall(CordPacY ,CordPacx - 1,board))
                 {
-
                     HelpFunctions.eatPowerBall(GameEntities);
-
-                    //this.context.getGameData().setNumberPowerBalls(this.context.getGameData().getNumberPowerBalls() - 1 );
-
-                    if(this.context.getGameData().getNumberBalls() == 0 && this.context.getGameData().getNumberPowerBalls() == 0) {
-                        //this.context.changeState(GameState.LEVEL_TRANSITION);
-                    }
-
-
-                    else {
-                        // System.out.println("Fiz isto");
-                        //this.context.changeState(GameState.ONGOING_GAME_POWER);
-                        timeout += timer;
-                    }
-                    //this.eatPowerBall(CordPacY - 1,CordPacx,direcao);
-
+                    timeout += timer;
                 }
                 if(HelpFunctions.detectBall(CordPacY ,CordPacx - 1,board)){
                     HelpFunctions.eatBall(direcao,GameEntities);
@@ -439,34 +364,10 @@ public class OngoingGameState_PowerState extends GameStateAdapter {
 
                 }
 
-               /* if (HelpFunctions.detectGhost(CordPacY, CordPacx + 1, board)) {
-                    GameEntities.getMaze().set(CordPacY, CordPacx , new VoidSpace());
-                    ghostsEaten++;
-                    HelpFunctions.eatGhost(ghostsEaten,GameEntities);
-                    //super.context.changeState(GameState.PAC_MAN_DEAD);
-
-                }
-
-                */
                 if(HelpFunctions.detectPowerBall(CordPacY ,CordPacx + 1,board))
                 {
-
                     HelpFunctions.eatPowerBall(GameEntities);
-
-                    //this.context.getGameData().setNumberPowerBalls(this.context.getGameData().getNumberPowerBalls() - 1 );
-
-                    if(this.context.getGameData().getNumberBalls() == 0 && this.context.getGameData().getNumberPowerBalls() == 0) {
-                        //this.context.changeState(GameState.LEVEL_TRANSITION);
-                    }
-
-
-                    else {
-                        // System.out.println("Fiz isto");
-                        //this.context.changeState(GameState.ONGOING_GAME_POWER);
-                        timeout += timer;
-                    }
-                    //this.eatPowerBall(CordPacY - 1,CordPacx,direcao);
-
+                    timeout += timer;
                 }
                 if(HelpFunctions.detectBall(CordPacY ,CordPacx + 1,board)){
 
@@ -475,18 +376,7 @@ public class OngoingGameState_PowerState extends GameStateAdapter {
                 }
                 break;
         }
-       /* try {
-            Thread.sleep(500);
-        } catch (InterruptedException e) {
-            System.out.println("A Thread.sleep no movimento do pacaman nao correu bem");
-        }
 
-        */
-
-
-
-
-        //return GameEntities.getBoard();
     }
 
 

@@ -117,7 +117,7 @@ public class FantomsDontMoveState extends GameStateAdapter {
                 }
 
 
-                if ( ! HelpFunctions.detectWallORGhostPortal(CordPacY - 1, CordPacx, board))
+                if (!HelpFunctions.detectWallORGhostPortal(CordPacY - 1, CordPacx, board))
                 {
 
 
@@ -129,40 +129,18 @@ public class FantomsDontMoveState extends GameStateAdapter {
 
                 }
 
-                /*if (HelpFunctions.detectGhost(CordPacY - 1, CordPacx, board))
-                {
-                    GameEntities.getMaze().set(CordPacY, CordPacx, new VoidSpace());
-                    //super.context.changeState(GameState.PAC_MAN_DEAD);
-                    System.out.println("PacManMorreu");
-
-                }
-
-                 */
 
                 if(HelpFunctions.detectPowerBall(CordPacY - 1,CordPacx,board))
                 {
 
                     HelpFunctions.eatPowerBall(GameEntities);
-
-
-                    if(this.context.getGameData().getNumberBalls() == 0 && this.context.getGameData().getNumberPowerBalls() == 0) {
-                        //this.context.changeState(GameState.LEVEL_TRANSITION);
-                    }
-
-
-                    else {
-                       // System.out.println("Fiz isto");
-                        this.context.changeState(GameState.ONGOING_GAME_POWER);
-
-                    }
+                    this.context.changeState(GameState.ONGOING_GAME_POWER);
 
                 }
 
                 if(HelpFunctions.detectFruit(CordPacY - 1,CordPacx,board)){
                     HelpFunctions.eatFruit(GameEntities);
                 }
-
-
 
                 if(HelpFunctions.detectBall(CordPacY - 1,CordPacx,board)){
                     //System.out.println("Ball Detected");
@@ -203,36 +181,15 @@ public class FantomsDontMoveState extends GameStateAdapter {
 
                 }
 
-               /* if (HelpFunctions.detectGhost(CordPacY + 1, CordPacx, board)) {
-                    GameEntities.getMaze().set(CordPacY, CordPacx, new VoidSpace());
-                    //super.context.changeState(GameState.PAC_MAN_DEAD);
-                    System.out.println("PacManMorreu");
-
-                }
-
-                */
                 if(HelpFunctions.detectPowerBall(CordPacY + 1,CordPacx,board))
                 {
 
                     HelpFunctions.eatPowerBall(GameEntities);
-
-                   // this.context.getGameData().setNumberPowerBalls(this.context.getGameData().getNumberPowerBalls() - 1 );
-
-                    if(this.context.getGameData().getNumberBalls() == 0 && this.context.getGameData().getNumberPowerBalls() == 0) {
-                        //this.context.changeState(GameState.LEVEL_TRANSITION);
-                    }
-
-
-                    else {
-                        // System.out.println("Fiz isto");
-                        this.context.changeState(GameState.ONGOING_GAME_POWER);
-
-                    }
+                    this.context.changeState(GameState.ONGOING_GAME_POWER);
 
                 }
                 if(HelpFunctions.detectBall(CordPacY + 1,CordPacx,board)){
                     HelpFunctions.eatBall(direcao,GameEntities);
-                    //this.eatBall(CordPacY + 1,CordPacx,direcao);
                 }
 
                 if(HelpFunctions.detectFruit(CordPacY + 1,CordPacx,board)){
@@ -271,23 +228,11 @@ public class FantomsDontMoveState extends GameStateAdapter {
                */
                 if(HelpFunctions.detectPowerBall(CordPacY ,CordPacx - 1,board))
                 {
-
                     HelpFunctions.eatPowerBall(GameEntities);
-
-                    //this.context.getGameData().setNumberPowerBalls(this.context.getGameData().getNumberPowerBalls() - 1 );
-
-                    if(this.context.getGameData().getNumberBalls() == 0 && this.context.getGameData().getNumberPowerBalls() == 0) {
-                        //this.context.changeState(GameState.LEVEL_TRANSITION);
-                    }
-
-
-                    else {
-                        // System.out.println("Fiz isto");
-                        this.context.changeState(GameState.ONGOING_GAME_POWER);
-
-                    }
-
+                    this.context.changeState(GameState.ONGOING_GAME_POWER);
                 }
+
+
                 if(HelpFunctions.detectBall(CordPacY ,CordPacx - 1,board)){
                     HelpFunctions.eatBall(direcao,GameEntities);
                     //this.eatBall(CordPacY ,CordPacx - 1,direcao);
@@ -319,31 +264,11 @@ public class FantomsDontMoveState extends GameStateAdapter {
 
                 }
 
-               /* if (HelpFunctions.detectGhost(CordPacY, CordPacx + 1, board)) {
-                    GameEntities.getMaze().set(CordPacY, CordPacx, new VoidSpace());
-                    //super.context.changeState(GameState.PAC_MAN_DEAD);
-                    System.out.println("PacManMorreu");
-
-                }
-
-                */
                 if(HelpFunctions.detectPowerBall(CordPacY ,CordPacx + 1,board))
                 {
 
                     HelpFunctions.eatPowerBall(GameEntities);
-
-
-                    if(this.context.getGameData().getNumberBalls() == 0 && this.context.getGameData().getNumberPowerBalls() == 0) {
-                        //this.context.changeState(GameState.LEVEL_TRANSITION);
-                    }
-
-
-                    else {
-                        // System.out.println("Fiz isto");
-                        this.context.changeState(GameState.ONGOING_GAME_POWER);
-
-                    }
-
+                    this.context.changeState(GameState.ONGOING_GAME_POWER);
                 }
                 if(HelpFunctions.detectBall(CordPacY ,CordPacx + 1,board)){
 
@@ -356,18 +281,7 @@ public class FantomsDontMoveState extends GameStateAdapter {
 
                 break;
         }
-       /* try {
-            Thread.sleep(500);
-        } catch (InterruptedException e) {
-            System.out.println("A Thread.sleep no movimento do pacaman nao correu bem");
-        }
 
-        */
-
-
-
-
-        //return GameEntities.getBoard();
     }
 
     @Override

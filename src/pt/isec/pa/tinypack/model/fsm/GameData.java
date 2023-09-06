@@ -108,6 +108,7 @@ public class GameData {
 
         try{
 
+
             FileReader obj = new FileReader("Level01.txt");
             BufferedReader reader = new BufferedReader(obj);
 

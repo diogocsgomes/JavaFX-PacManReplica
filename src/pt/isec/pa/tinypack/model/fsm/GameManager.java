@@ -9,7 +9,7 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextInputDialog;
 import javafx.scene.image.Image;
-import javafx.scene.input.KeyCode;
+//import javafx.scene.input.KeyCode;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import pt.isec.pa.tinypack.gameengine.GameEngine;
@@ -24,7 +24,7 @@ import pt.isec.pa.tinypack.model.help_functions.HelpFunctions;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.util.List;
-import java.util.Map;
+//import java.util.Map;
 
 import static pt.isec.pa.tinypack.model.data.PacManDirections.*;
 
