@@ -1,9 +1,9 @@
 package pt.isec.pa.tinypack.model.fsm;
-import javafx.scene.input.KeyCode;
 import pt.isec.pa.tinypack.model.data.*;
 import pt.isec.pa.tinypack.model.data.mazeElements.*;
 
 import java.io.BufferedReader;
+import java.io.Console;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -585,16 +585,17 @@ public class GameData {
         return pontos;
     }
 
-    public void setPontos(int pointsToAdd) {
+    public void addPontos(int pointsToAdd) {
 
 
-        this.pontos = pointsToAdd;
+        this.pontos += pointsToAdd;
 
         if(addToFruit)
         {
             pointsToFruit +=pointsToAdd;
-            if(pointsToAdd >= 20) {
+            if(pointsToFruit >= 20) {
                 setFruitInMaze();
+                setPointsToFruit(0);
 
             }
         }
@@ -610,7 +611,7 @@ public class GameData {
                 (Inky.getX() == fruit.getX() && Inky.getY() == fruit.getY()) ||
                 (PacMan.getX() == fruit.getX() && PacMan.getY() == fruit.getY()))
         {
-            ;
+            ;//Espera que nao esteja ninguem nas cordenadas da fruta
         }
 
         Maze.set(fruit.getX(), fruit.getY(), fruit);

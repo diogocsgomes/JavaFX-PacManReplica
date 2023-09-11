@@ -1,6 +1,5 @@
 package pt.isec.pa.tinypack.model.help_functions;
 
-import javafx.scene.input.KeyCode;
 import pt.isec.pa.tinypack.model.data.PacManDirections;
 import pt.isec.pa.tinypack.model.data.mazeElements.PacMan;
 import pt.isec.pa.tinypack.model.data.mazeElements.VoidSpace;
@@ -75,15 +74,16 @@ public abstract class HelpFunctions {
     public static void eatBall(PacManDirections type, GameData GameEntities){
 
         GameEntities.setNumberBalls(GameEntities.getNumberBalls() - 1 );
-        GameEntities.setPontos(GameEntities.getPontos() + 1);
-
+        //GameEntities.setPontos(GameEntities.getPontos() + 1);
+        GameEntities.addPontos(1);
 
     }
 
     public static void eatPowerBall(GameData GameEntities){
 
         GameEntities.setNumberPowerBalls(GameEntities.getNumberPowerBalls() - 1 );
-        GameEntities.setPontos(GameEntities.getPontos() + 10);
+        //GameEntities.setPontos(GameEntities.getPontos() + 10);
+        GameEntities.addPontos( 10);
 
 
 
@@ -91,7 +91,8 @@ public abstract class HelpFunctions {
 
 
     public static void eatGhost(int num_ghosts,GameData GameEntities){
-        GameEntities.setPontos(GameEntities.getPontos() + 50 * num_ghosts);
+        //GameEntities.setPontos(GameEntities.getPontos() + 50 * num_ghosts);
+        GameEntities.addPontos( 50 * num_ghosts);
     }
 
     public  static void processWarp(GameData GameEntities){
@@ -243,11 +244,15 @@ public abstract class HelpFunctions {
 
         GameEntities.setFruitsEaten(GameEntities.getFruitsEaten() + 1);
 
-        GameEntities.setPontos(GameEntities.getPontos() + 25 * GameEntities.getFruitsEaten());
+        //GameEntities.setPontos(25 * GameEntities.getFruitsEaten());
+        GameEntities.addPontos( 25 * GameEntities.getFruitsEaten());
+
+        GameEntities.setPointsToFruit(0); //E necessario que esta instrucao veha antes da proxima para evitar excesso de pontos na variavel
+        //points to fruit da classe GameData
 
         GameEntities.setAddToFruit(true);
 
-        GameEntities.setPointsToFruit(0);
+
 
 
 
