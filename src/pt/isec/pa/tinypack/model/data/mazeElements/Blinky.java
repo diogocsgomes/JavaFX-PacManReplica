@@ -52,10 +52,6 @@ public class Blinky extends Ghost{
 
     @Override
     public void move(GameData gameData){
-
-        //Blinky aux = gameData.getBlinky();
-
-
         if(getState() == GhostState.IN_CAVE)
         {
             System.out.println("Fui chamado");
@@ -64,97 +60,53 @@ public class Blinky extends Ghost{
 
             int auxCordx = getX();
             int auxCordY = getY();
-
-
-
-
             if (!HelpFunctions.detectWallORGhostPortal(auxCordY - 1, auxCordx, gameData.getBoard()))
             {
                 setPreviousElement(gameData.getMaze().get(auxCordY - 1, auxCordx));
                 gameData.getMaze().set(auxCordY - 1, auxCordx, this); //Pacman avanca uma casa
-
-
                 setX(auxCordx);
                 setY(auxCordY - 1);
                 setState(GhostState.MOVING);
 
                 return;
             }
-
         }
-
         if(!detectWallAhead(gameData)){
             detectCrossing(gameData);
         }
-
-
         int auxCordx = getX();
         int auxCordY = getY();
+        boolean sinAlteraciones = previousElement.getSymbol() != gameData.getPacMan().getSymbol();
         switch (direction){
             case UP -> {
-            //Mover para cima
-
                 gameData.getMaze().set(auxCordY,auxCordx,previousElement);
-
-                if(previousElement.getSymbol() != gameData.getPacMan().getSymbol())
-                    setPreviousElement(gameData.getMaze().get(auxCordY - 1 , auxCordx ));//auxCordX e auxCordY nao sofrem alterações
-                // aqui pq ja correspoondem as cordenadas antigas
-                gameData.getMaze().set(auxCordY - 1, auxCordx, this); //Pacman avanca uma casa
-
-               // gameData.getMaze().set(auxCordY - 1, auxCordx, this); //Pacman avanca uma casa
-
-
+                if(sinAlteraciones)
+                    setPreviousElement(gameData.getMaze().get(auxCordY - 1 , auxCordx ));
+                gameData.getMaze().set(auxCordY - 1, auxCordx, this);
                 setX(auxCordx);
                 setY(auxCordY - 1);
-
-
-
             }
-
             case DOWN -> {
-                //Mover para baixo
-
                 gameData.getMaze().set(auxCordY,auxCordx,previousElement);
-
-                if(previousElement.getSymbol() != gameData.getPacMan().getSymbol())
-                    setPreviousElement(gameData.getMaze().get(auxCordY + 1 , auxCordx));//auxCordX e auxCordY nao sofrem alterações
-                // aqui pq ja correspoondem as cordenadas antigas
-
-                gameData.getMaze().set(auxCordY + 1, auxCordx, this); //Pacman avanca uma casa
-
-
+                if(sinAlteraciones)
+                    setPreviousElement(gameData.getMaze().get(auxCordY + 1 , auxCordx));
+                gameData.getMaze().set(auxCordY + 1, auxCordx, this);
                 setX(auxCordx);
                 setY(auxCordY + 1);
-
             }
-
             case LEFT -> {
-                //Mover para a esquerda
-
                 gameData.getMaze().set(auxCordY,auxCordx,previousElement);
-
-                if(previousElement.getSymbol() != gameData.getPacMan().getSymbol())
-                    setPreviousElement(gameData.getMaze().get(auxCordY , auxCordx -1));//auxCordX e auxCordY nao sofrem alterações
-                // aqui pq ja correspoondem as cordenadas antigas
-                gameData.getMaze().set(auxCordY , auxCordx - 1, this); //Pacman avanca uma casa
-
-
+                if(sinAlteraciones)
+                    setPreviousElement(gameData.getMaze().get(auxCordY , auxCordx -1));
+                gameData.getMaze().set(auxCordY , auxCordx - 1, this);
                 setX(auxCordx - 1);
                 setY(auxCordY );
-
-
             }
             case RIGHT -> {
-                //Mover para a direita
                 gameData.getMaze().set(auxCordY,auxCordx,previousElement);
-
-                if(previousElement.getSymbol() != gameData.getPacMan().getSymbol())
-                    setPreviousElement(gameData.getMaze().get(auxCordY , auxCordx + 1));//auxCordX e auxCordY nao sofrem alterações
-                // aqui pq ja correspoondem as cordenadas antigas
-
-                gameData.getMaze().set(auxCordY , auxCordx + 1, this); //Pacman avanca uma casa
-
-
+                if(sinAlteraciones)
+                    setPreviousElement(gameData.getMaze().get(auxCordY , auxCordx + 1));
+                gameData.getMaze().set(auxCordY , auxCordx + 1, this);
                 setX(auxCordx + 1);
                 setY(auxCordY );
 

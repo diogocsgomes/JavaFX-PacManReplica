@@ -7,9 +7,7 @@ public class HighScores implements Serializable {
     private static final long serialVersionUID = 1L;
     private static final String FILE_NAME = "./HighScores/highscores.ser";
 
-
-    //private Map<String, Integer> score;
-    private List<Score> HighScores;
+    private Map<String, Integer> HighScores;
 
     public HighScores() {
         File file = new File(FILE_NAME);
@@ -28,7 +26,7 @@ public class HighScores implements Serializable {
                 c.printStackTrace();
             }
         } else {
-            this.HighScores = new ArrayList<>();
+            this.HighScores = new HashMap<>();
         }
     }
 
@@ -59,7 +57,7 @@ public class HighScores implements Serializable {
         });
     }
 
-    public List<Score> getHighScores() {
+    public Map<String, Integer> getHighScores() {
         return HighScores;
     }
 
